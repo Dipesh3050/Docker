@@ -1,0 +1,14 @@
+version: '3'
+services:
+  fastapi:
+    build: .
+    ports:
+      - "8090:80"
+    depends_on:
+      - mongodb
+    environment:
+      MONGO_URI: "mongodb://mongodb:27017/"
+  mongodb:
+    image: "mongo:latest"
+    ports:
+      - "27019:27019"
